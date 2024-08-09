@@ -18,6 +18,7 @@ const readTracksFromFile = async () => {
         }
 
         const jsonData = JSON.parse(data);
+        console.log("wogjwioj")
 
         const id = jsonData.map((item) => item.id);
         return id;
