@@ -20,7 +20,9 @@ const readTracksFromFile = async () => {
         const jsonData = JSON.parse(data);
 
         const id = jsonData.map((item) => item.id);
+        console.log(id);
         return id;
+
     });
 }
 
