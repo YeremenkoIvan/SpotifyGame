@@ -4,12 +4,12 @@ import SpotifyAPI from '../core/SpotifyApi.js';
 import {readTracksFromFile, saveTracksToFile} from '../service/getTrack.service.js'
 import jwt from 'jsonwebtoken';
 
-const getTrack = express.Router();
+const startGame = express.Router();
 dotenv.config();
 
 const spotify = new SpotifyAPI(process.env.CLIENT_ID, process.env.CLIENT_SECRET);
 
-getTrack.get('/', async (req, res) => {
+startGame.get('/', async (req, res) => {
     const {playlistId} = process.env.PLAYLIST_ID
 
     try {
@@ -33,4 +33,4 @@ getTrack.get('/', async (req, res) => {
     }
 });
 
-export default getTrack;
+export default startGame;
