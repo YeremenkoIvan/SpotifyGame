@@ -84,6 +84,11 @@ export default class SpotifyAPI {
             seed_tracks: track_id
         };
         const data = await this._get(url, params);
-        return data;
+
+        const recommendations = data.tracks.map(track => ({
+              trackName: track.name,
+              artists: track.artists.map(artist => artist.name)
+          }));
+        return recommendations;
     }
 }

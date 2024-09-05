@@ -4,7 +4,7 @@ import getRecomendations from "./getRecomendations.route.js"
 
 const registerRoutes = (app) => {
     app.use('/ping', pingRouter);
-    app.use('/track', getTrack);
+    app.use('/startGame', getTrack);
     app.use('/recommendations', getRecomendations);
 };
 
