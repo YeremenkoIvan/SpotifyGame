@@ -1,4 +1,7 @@
 import fs from 'fs';
+import tracks from "../data/tracks.json" assert { type: 'json' };
+import { spotifyAPI } from '../core/loader.js';
+import { encodeSHA256 } from './jwt.service.js';
 
 export const getAllTrack = async (api, playlist_id) => {
     let allTracks = [];
@@ -46,5 +49,20 @@ export const readTracksFromFile = async (filePath, enc) => {
         });
     });
 };
+
+export const getRandomTrack = async () => {
+    const randomID = Math.floor(Math.random() * tracks.length + 1);
+    const {id,name,artists,preview_url} = tracks[randomID].track;
+    return {randomTrack: {id: id, name: name, artists: artists[0].name, isAnswer: true}, preview_url: preview_url};
+}
+
+export const getRecomendation = async(randomTrack) => {
+    const recommendations = await spotifyAPI.getRecomendation(randomTrack);
+    return recommendations;
+}
+
+export const checkAnswer = (id, answer) => {
+    return id == encodeSHA256(answer);
+}
 
 

@@ -68,7 +68,7 @@ export default class SpotifyAPI {
     async getTrack(playlist_id, offset, limit = 100) {
         const url = `playlists/${playlist_id}/tracks`;
         const params = {
-            fields: "items.track(preview_url,name,id)",
+            fields: "items.track(preview_url,name,id,artists.name)",
             limit: limit,
             offset: offset,
         };
@@ -86,8 +86,9 @@ export default class SpotifyAPI {
         const data = await this._get(url, params);
 
         const recommendations = data.tracks.map(track => ({
-              trackName: track.name,
-              artists: track.artists.map(artist => artist.name)
+            id: track.id,  
+            name: track.name,
+            artists: track.artists[0].name
           }));
         return recommendations;
     }

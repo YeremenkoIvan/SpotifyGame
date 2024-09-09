@@ -2,7 +2,9 @@ import express from 'express';
 import config from './core/config.js';
 import registerRoutes from './routes/index.js';
 import { registerMiddlewares, registerErrorHandlingMiddlewares } from './middlewares/index.js';
+import { initTracks } from './core/loader.js';
 
+initTracks();
 
 const app = express();
 
