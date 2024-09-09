@@ -1,0 +1,20 @@
+:root {
+    --main-color: #ffd139;
+    --secondary-color: #2eaa50;
+    --light-color: white;
+    --dark-color: black;
+}
+
+body {
+    margin: 0;
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+    font-family: 'Roboto Mono', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
