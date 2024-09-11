@@ -11,7 +11,9 @@ const gameRouter = express.Router();
 gameRouter.get('/start', async (req, res, next) => {
     try {
         const {randomTrack, preview_url} = await getRandomTrack();
+        console.log(randomTrack)
         const token = generateToken(randomTrack.id, 0);
+        
         const recommendations = await getRecomendation(randomTrack.id);
         const answers = shuffle([...recommendations,randomTrack]);
 

@@ -1,0 +1,19 @@
+.navbar{
+    height: 54px;
+    background-color: var(--main-color);
+    margin:0;
+    padding: var(--spacer-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbarItem{
+    font-size: var(--font-size-4);
+    color: var(--dark-color);
+}
+
+.navbarIcons{
+    display: flex;
+    gap: var(--spacer-s);
+}

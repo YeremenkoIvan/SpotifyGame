@@ -51,7 +51,7 @@ export const readTracksFromFile = async (filePath, enc) => {
 };
 
 export const getRandomTrack = async () => {
-    const randomID = Math.floor(Math.random() * tracks.length + 1);
+    const randomID = Math.floor(Math.random() * tracks.length);
     const {id,name,artists,preview_url} = tracks[randomID].track;
     return {randomTrack: {id: id, name: name, artists: artists[0].name, isAnswer: true}, preview_url: preview_url};
 }
