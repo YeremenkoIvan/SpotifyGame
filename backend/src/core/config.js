@@ -9,7 +9,7 @@ const config = {
   CLIENT_ID: process.env.CLIENT_ID,
   CLIENT_SECRET: process.env.CLIENT_SECRET,
   PLAYLIST_ID: process.env.PLAYLIST_ID,
-  DEFAULT_DATA_DIR_PATH : "./src/data/"
+  DEFAULT_DATA_DIR_PATH : process.env.DEFAULT_DATA_DIR_PATH
 };
 
 export default config;

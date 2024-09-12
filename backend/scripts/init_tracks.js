@@ -1,12 +1,10 @@
 import { promises as fs } from 'fs';
-import config from './config.js';
-import SpotifyAPI from '../lib/SpotifyApi.js';
-import { getAllTracks } from '../service/spotify.service.js';
-
-export const spotifyAPI = new SpotifyAPI(config.CLIENT_ID , config.CLIENT_SECRET);
+import { getAllTracks } from '../src/service/spotify.service.js';
+import config from "../src/core/config.js";
 
 
-export const initTracks = () => {
+
+const initTracks = () => {
     const fetchTracks = async () => {
         try {
             await fs.access(config.DEFAULT_DATA_DIR_PATH);
@@ -24,3 +22,5 @@ export const initTracks = () => {
 
     fetchTracks()
 }
+
+initTracks();
