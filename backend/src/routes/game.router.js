@@ -22,7 +22,12 @@ gameRouter.get("/start", async (req, res, next) => {
 
     res
       .status(200)
-      .json({ token: token, preview_url: preview_url, answers: answers });
+      .json({
+        status: "ok",
+        token: token,
+        preview_url: preview_url,
+        answers: answers,
+      });
   } catch (error) {
     next(error);
   }
@@ -35,10 +40,10 @@ gameRouter.get("/start", async (req, res, next) => {
 gameRouter.post("/answer", async (req, res, next) => {
   try {
     const { token, answer } = req.body;
-    console.log(`token is: ${token}\nanswer is: ${answer}`);
+    console.log(`Token is: ${token}\n answer is: ${answer}`);
     const tokenPayload = decodeToken(token);
     if (!checkAnswer(tokenPayload.trackId, answer)) {
-      res.json({ score: tokenPayload.answerKey });
+      res.json({ status: "failed", score: tokenPayload.answerKey });
     }
 
     const { randomTrack, preview_url, randomID } = await getRandomTrack();
@@ -46,9 +51,12 @@ gameRouter.post("/answer", async (req, res, next) => {
     const recommendations = await getRecommendationFromFile(randomID);
     const answers = shuffle([...recommendations, randomTrack]);
 
-    res
-      .status(200)
-      .json({ token: newToken, preview_url: preview_url, answers: answers });
+    res.status(200).json({
+      status: "ok",
+      token: newToken,
+      preview_url: preview_url,
+      answers: answers,
+    });
   } catch (error) {
     next(error);
   }
