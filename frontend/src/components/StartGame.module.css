@@ -1,0 +1,23 @@
+.start {
+    background-color: var(--light-color);
+    height: calc(100vh - 86px);
+}
+
+.answers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 5px;
+    padding: 0;
+}
+
+.startGameButton {
+    font-family: "Roboto Mono";
+    padding: var(--spacer-lg) var(--spacer-xs);
+    border: 3px solid var(--main-color);
+    border-color: var(--light-color);
+    border-radius: 15px;
+    background-color: var(--main-color);
+    font-size: var(--font-size-6);
+    box-shadow: 0 0 0 0.25rem var(--main-color);
+    margin: 10px;
+}

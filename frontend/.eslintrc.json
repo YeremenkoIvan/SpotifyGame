@@ -28,7 +28,8 @@
     ],
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
-    "indent": ["error", 4]
+    "indent": ["error", 4],
+    "no-unused-vars": "off"
   },
   "settings": {
     "react": {
