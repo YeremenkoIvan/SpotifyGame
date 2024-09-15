@@ -2,6 +2,7 @@ import { promises as fs } from "fs";
 import { getRecomendation } from "../src/service/game.service.js";
 import config from "../src/core/config.js";
 import tracks from "../data/tracks.json" assert { type: "json" };
+import recomendationsData from "../data/recomendations.json" assert { type: "json" };
 
 const initRecomendations = () => {
   const fetchTracks = async () => {
@@ -13,7 +14,7 @@ const initRecomendations = () => {
       console.error(err.toString());
     }
 
-    const recomendations = [];
+    const recomendations = recomendationsData;
 
     const fetchTrack = async (track) => {
       const recs = await new Promise((resolve) => {
@@ -33,7 +34,7 @@ const initRecomendations = () => {
     };
 
     const fetchRecommendations = async () => {
-      for (const { track } of tracks) {
+      for (const { track } of tracks.slice(392, tracks.length)) {
         await fetchTrack(track); // Wait for the recommendation before proceeding
       }
     };

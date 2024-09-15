@@ -16,18 +16,14 @@ gameRouter.get("/start", async (req, res, next) => {
     const token = generateToken(randomTrack.id, 0);
 
     const recommendations = await getRecommendationFromFile(randomID);
-    console.log(recommendations);
     const answers = shuffle([...recommendations, randomTrack]);
-    console.log(answers);
 
-    res
-      .status(200)
-      .json({
-        status: "ok",
-        token: token,
-        preview_url: preview_url,
-        answers: answers,
-      });
+    res.status(200).json({
+      status: "ok",
+      token: token,
+      preview_url: preview_url,
+      answers: answers,
+    });
   } catch (error) {
     next(error);
   }
