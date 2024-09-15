@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import Navbar from "./components/Navbar";
-import { StartPage, OngoingPage, FinishedPage } from "./components";
+import { StartPage, OngoingPage, FinishedPage, Timer } from "./components";
 
 const GameStatus = {
     STARTING: "STARTING",
@@ -36,11 +36,16 @@ function App() {
 
     return (
         <div>
+            {/* <Timer question={gameData} /> */}
             <Navbar
                 question={gameData}
                 onExit={() => {
                     setGameStatus(GameStatus.STARTING);
                     setGameData(null);
+                }}
+                onFinish={() => {
+                    setGameData({ score: gameData.answerKey });
+                    setGameStatus(GameStatus.FINISHED);
                 }}
             />
             {gamePages[gameStatus]}

@@ -2,6 +2,7 @@ import { React } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGamepad } from "@fortawesome/free-solid-svg-icons";
 import styles from "./StartScreen.module.css";
+import SpotifyLogo from "./img/SpotifyLogo.jpg";
 
 export default function StartPage({ onStart }) {
     const handleClick = () => {
@@ -16,16 +17,41 @@ export default function StartPage({ onStart }) {
     };
     return (
         <div className={styles.startScreen}>
-            <FontAwesomeIcon icon={faGamepad} className={styles.startIcon} />
+            {/* <FontAwesomeIcon icon={faGamepad} className={styles.startIcon} /> */}
 
             <div className={styles.startScreenCenter}>
+                <img
+                    className={styles.startScreenImg}
+                    src={SpotifyLogo}
+                    alt="Description of image"
+                />
+            </div>
+            <div className={styles.startScreenCenter}>
                 <div className={styles.startScreenStyle}>
-                    <p>
-                        Сможете ли вы угадать песню по короткому отрывку?
-                        Пополните крупнейшую коллекцию музыкальных фрагментов и
-                        помогите развитию SpotifyGame, где каждый может
-                        проверить свои музыкальные знания!
+                    <div className={styles.pyramid}>
+                        <div className={styles.line1}>
+                            Can you guess the song from a short snippet?
+                        </div>
+                        <div className={styles.line2}>
+                            Help grow the largest collection of music clips and
+                            support
+                        </div>
+                        <div className={styles.line2}>
+                            the development of SpotifyGame,where
+                        </div>
+                        <div className={styles.line2}>
+                            everyone can test their
+                        </div>
+                        <div className={styles.line2}>musical knowledge!</div>
+                    </div>
+                    {/* <p className={styles.startScreenStyleLarge}>
+                        Can you guess the song from a short snippet?
                     </p>
+                    <p className={styles.startScreenStyleSmall}>
+                        Help grow the largest collection of music clips and
+                        support the development of SpotifyGame, where everyone
+                        can test their musical knowledge!
+                    </p> */}
                 </div>
                 <div className={styles.startScreenStyle}>
                     <button

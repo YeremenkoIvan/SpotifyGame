@@ -3,6 +3,8 @@ import { React } from "react";
 import { decodeToken } from "react-jwt";
 
 export default function OngoingPage({ question, setGameData, onFinish }) {
+    const token = decodeToken(question.token);
+    const timer = token.exp - token.iat;
     const handleClick = id => {
         fetch("http://localhost:8000/game/answer", {
             method: "POST",
@@ -39,7 +41,6 @@ export default function OngoingPage({ question, setGameData, onFinish }) {
                                     className={styles.startGameButton}
                                     key={item.id}
                                     onClick={() => {
-                                        console.log("Button clicked:", item.id);
                                         handleClick(item.id);
                                     }}
                                 >
