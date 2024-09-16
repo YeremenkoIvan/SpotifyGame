@@ -11,8 +11,6 @@ export default function Navbar({ question, onExit, onFinish }) {
 
     const time = token?.exp && token?.iat ? token.exp : 0;
 
-    console.log(`here: ${time}`);
-
     return (
         <nav className={styles.navbar}>
             <div className={styles.navbarItem}>

@@ -15,9 +15,6 @@ export default function FinishedPage({ question }) {
             ) : (
                 <div className={styles.finishedPage}>
                     <div className={styles.finishedPageLarge}>
-                        <p>Congratulation!!!</p>
-                    </div>
-                    <div className={styles.finishedPageSmall}>
                         <p>Time to answer has ended</p>
                     </div>
                 </div>

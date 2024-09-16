@@ -28,30 +28,14 @@ export default function StartPage({ onStart }) {
             </div>
             <div className={styles.startScreenCenter}>
                 <div className={styles.startScreenStyle}>
-                    <div className={styles.pyramid}>
-                        <div className={styles.line1}>
-                            Can you guess the song from a short snippet?
-                        </div>
-                        <div className={styles.line2}>
-                            Help grow the largest collection of music clips and
-                            support
-                        </div>
-                        <div className={styles.line2}>
-                            the development of SpotifyGame,where
-                        </div>
-                        <div className={styles.line2}>
-                            everyone can test their
-                        </div>
-                        <div className={styles.line2}>musical knowledge!</div>
-                    </div>
-                    {/* <p className={styles.startScreenStyleLarge}>
+                    <p className={styles.startScreenStyleLarge}>
                         Can you guess the song from a short snippet?
                     </p>
                     <p className={styles.startScreenStyleSmall}>
                         Help grow the largest collection of music clips and
                         support the development of SpotifyGame, where everyone
                         can test their musical knowledge!
-                    </p> */}
+                    </p>
                 </div>
                 <div className={styles.startScreenStyle}>
                     <button

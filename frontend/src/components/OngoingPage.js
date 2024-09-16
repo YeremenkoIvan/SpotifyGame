@@ -32,8 +32,14 @@ export default function OngoingPage({ question, setGameData, onFinish }) {
     return (
         <div className={styles.start}>
             {question ? (
-                <div>
-                    <audio controls src={question.preview_url}></audio>
+                <div className={styles.ongoingPage}>
+                    <div className={styles.audioPlayerWrapper}>
+                        <audio
+                            className={styles.audioPlayer}
+                            controls
+                            src={question.preview_url}
+                        ></audio>
+                    </div>
                     <div>
                         <ul className={styles.answers}>
                             {question.answers.map(item => (
@@ -44,9 +50,8 @@ export default function OngoingPage({ question, setGameData, onFinish }) {
                                         handleClick(item.id);
                                     }}
                                 >
-                                    <h5>{item.name}</h5>
-                                    <h5>{item.artists}</h5>
-                                    <h5>{JSON.stringify(item)}</h5>
+                                    <p>{`"${item.name}"`}</p>
+                                    <p>{`Artist is: ${item.artists}`}</p>
                                 </button>
                             ))}
                         </ul>

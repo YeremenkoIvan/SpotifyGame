@@ -1,23 +1,68 @@
 .start {
     background-color: var(--light-color);
     height: calc(100vh - 86px);
+    margin-top: var(--spacer-lg);
+    font-family: "Roboto Mono";
 }
 
 .answers {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
     margin: 5px;
     padding: 0;
 }
 
+@media (max-width: 790px) {
+    .answers {
+        grid-template-columns: 1fr;
+    }
+}
+.audioPlayerWrapper {
+    text-align: center;
+}
+
+.audioPlayer {
+    width: 100%;
+    max-width: 350px;
+    border: 1px solid var(--dark-color);
+    margin: 0 auto;
+    display: block;
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: var(--light-color);
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+    color: var(--dark-color);
+}
+
+audio {
+    background-color: var(--light-color);
+    border-radius: 0;
+}
+
 .startGameButton {
-    font-family: "Roboto Mono";
     padding: var(--spacer-lg) var(--spacer-xs);
     border: 3px solid var(--main-color);
     border-color: var(--light-color);
     border-radius: 15px;
     background-color: var(--main-color);
-    font-size: var(--font-size-6);
     box-shadow: 0 0 0 0.25rem var(--main-color);
     margin: 10px;
+    font-size: var(--font-size-3);
+}
+
+.startGameButton:hover {
+    box-shadow: 0 0 0 0.25rem var(--dark-color);
+    cursor: pointer;
+}
+
+@media (max-width: 790px) {
+    .startGameButton {
+        max-width: 100%;
+    }
 }

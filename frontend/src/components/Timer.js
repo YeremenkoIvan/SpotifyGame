@@ -12,8 +12,6 @@ export default function Timer({ time, onFinish }) {
                 onFinish();
             } else {
                 setCurrTime(formatTime(Date.now()));
-                console.log(currTime);
-                console.log(time);
             }
         }, 1000);
 
@@ -26,5 +24,5 @@ export default function Timer({ time, onFinish }) {
         return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
     };
 
-    return <h1>{formatOutput(time - currTime)}</h1>;
+    return <p>{formatOutput(time - currTime)}</p>;
 }
